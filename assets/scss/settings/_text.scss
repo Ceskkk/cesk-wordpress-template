@@ -1,0 +1,75 @@
+$font-xxs: 0.8rem;
+$font-xs: 1.2rem;
+$font-s: 1.6rem;
+$font-n: 2rem;
+$font-m: 2.4rem;
+$font-l: 2.8rem;
+$font-xl: 3.2rem;
+$font-xxl: 4rem;
+
+@mixin font-xs {
+  font-size: $font-xs;
+  @include for-phone {
+    font-size: $font-xxs;
+  }
+}
+
+@mixin font-s {
+  font-size: $font-s;
+  @include for-phone {
+    font-size: $font-xs;
+  }
+}
+
+@mixin font-n {
+  font-size: $font-s;
+  @include for-phone {
+    font-size: $font-xs;
+  }
+}
+
+@mixin font-m {
+  font-size: $font-m;
+  @include for-phone {
+    font-size: $font-s;
+  }
+}
+
+@mixin font-l {
+  font-size: $font-l;
+  @include for-phone {
+    font-size: $font-m;
+  }
+}
+
+@mixin font-xl {
+  font-size: $font-xl;
+  @include for-phone {
+    font-size: $font-l;
+  }
+}
+
+@mixin font-xxl {
+  font-size: $font-xxl;
+  @include for-phone {
+    font-size: $font-xl;
+  }
+}
+
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}

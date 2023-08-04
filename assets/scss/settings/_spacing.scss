@@ -1,0 +1,6 @@
+:root {
+  --spacing: 4rem;
+  @include for-phone {
+    --spacing: 2rem;
+  }
+}
