@@ -14,8 +14,6 @@ function after_setup_theme_actions()
   require_once('library/remove.php');
   // Polylang translations
   // require_once('library/polylang-translations.php');
-  // Add gsap
-  require_once('library/gsap.php');
   // Add post thumbnails
   add_theme_support( 'post-thumbnails' );
 } 
