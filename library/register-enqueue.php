@@ -12,17 +12,16 @@ define('VITE_SERVER', 'http://localhost:3000');
 define('VITE_ENTRY_POINT', '/index.js');
 
 add_action( 'wp_enqueue_scripts', function() {
-    $manifest = json_decode( file_get_contents( DIST_PATH . '/manifest.json'), true );
-      
-    if (is_array($manifest) && array_keys($manifest)) {
-        foreach($manifest as $file) {
-          if(explode('.', $file['file'])[1] == "css") {
-            wp_enqueue_style( 'main', DIST_URI . '/' . $file['file'] );
-          } else if(explode('.', $file['file'])[1] == "js") {
-            wp_enqueue_script( 'main', DIST_URI . '/' . $file['file'], JS_DEPENDENCY, '', JS_LOAD_IN_FOOTER );
-          }
+  $manifest = @json_decode( file_get_contents( DIST_PATH . '/manifest.json'), true );
+  if ($manifest && is_array($manifest) && array_keys($manifest)) {
+      foreach($manifest as $file) {
+        if(explode('.', $file['file'])[1] == "css") {
+          wp_enqueue_style( 'main', DIST_URI . '/' . $file['file'] );
+        } else if(explode('.', $file['file'])[1] == "js") {
+          wp_enqueue_script( 'main', DIST_URI . '/' . $file['file'], JS_DEPENDENCY, '', JS_LOAD_IN_FOOTER );
         }
-    }
+      }
+  }
 });
 
 ?>

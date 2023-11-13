@@ -57,7 +57,7 @@ function header_cleanup() {
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'remove_wp_ver_css_js', 9999 );
 }
-add_action('init', 'head_cleanup');
+add_action('init', 'header_cleanup');
 
 /* Other usefull cleans and removes */
 // remove WP version from RSS
